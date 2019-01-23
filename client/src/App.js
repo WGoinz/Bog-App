@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Creatures from './components/Creatures'
 import SingleCreature from './components/SingleCreature'
+import styled from 'styled-components'
+
 
 class App extends Component {
   render () {
