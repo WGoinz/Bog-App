@@ -1,14 +1,19 @@
-const mongoose = require('./connection')
-const { Creature } = require('./schema')
+const mongoose = require('mongoose')
+const Creature = require('../models/Creature')
 
-// using async/await
-const saved = async () => {
-    await Creature.remove()
-    const luke = new Creature({ name: 'Luke', description: 'Jedi' })
-    await luke.save()
-    const darth = new Creature({ name: 'Darth Vader', description: 'Father of Luke' })
-    await darth.save()
-    db.close()
-}
+const luke = new Creature({
+    name: 'Luke',
+    description: 'Jedi'
+})
+const darth = new Creature({
+    name: 'Darth Vader',
+    description: 'Father of Luke'
+})
 
-saved()
+
+
+Creature.remove({})
+    .then(() => luke.save())
+    .then(() => darth.save())
+    .then(() => console.log('Successful Save'))
+    .then(() => mongoose.connection.close())
