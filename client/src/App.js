@@ -6,13 +6,14 @@ import styled from 'styled-components'
 
 
 class App extends Component {
-  render () {
+
+  render() {
     return (
       <Router>
         <div>
           <Switch>
-            <Route exact path="/creatures" component={Creatures}/>
-            <Route path="/creatures/:id" component={SingleCreature}/>
+            <Route exact path="/creatures" component={Creatures} />
+            <Route exact path="/creatures/:id" component={SingleCreature} />
           </Switch>
         </div>
       </Router>
